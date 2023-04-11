@@ -19,7 +19,7 @@ export default function Home() {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati sed
         animi tempora quibusdam ex mollitia eveniet iste enim itaque, commodi
         cumque necessitatibus quia dignissimos voluptas odit ipsum. Quasi,
-        tempore officia!
+        tempore officia!ưert
       </p>
       <Link href="/coders/">
         <span className="btn">See All Coders</span>

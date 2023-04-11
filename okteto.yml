@@ -2,33 +2,41 @@ name: coders
 
 # The build section defines how to build the images of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#build
-# build:
-#   my-service:
-#     context: .
+build:
 
+  # You can use the following env vars to refer to this image in your deploy commands:
+  #  - OKTETO_BUILD_CODERS_REGISTRY: image registry
+  #  - OKTETO_BUILD_CODERS_REPOSITORY: image repo
+  #  - OKTETO_BUILD_CODERS_IMAGE: image name
+  #  - OKTETO_BUILD_CODERS_TAG: image tag
+  coders:
+    context: .
+    dockerfile: Dockerfile
 
 # The deploy section defines how to deploy your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#deploy
-deploy:
-  commands:
-    - name: Deploy
-      command: echo 'Replace this line with the proper 'helm' or 'kubectl' commands to deploy your development environment'
+# deploy:
+#   commands:
+#   - name: Deploy
+#     command: echo 'Replace this line with the proper 'helm' or 'kubectl' commands to deploy your development environment'
+
 
 # The dependencies section defines other git repositories to be deployed as part of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#dependencies
 # dependencies:
 #   - https://github.com/okteto/sample
+
+
 # The dev section defines how to activate a development container
 # More info: https://www.okteto.com/docs/reference/manifest/#dev
-# dev:
-#   sample:
-#     image: okteto/dev:latest
-#     command: bash
-#     workdir: /usr/src/app
-#     sync:
-#       - .:/usr/src/app
-#     environment:
-#       - name=$USER
-#     forward:
-#       - 8080:80
+dev:
+  coder:
+    image: okteto/node:14
+    command: bash
+    sync:
+      - .:/usr/src/app
+    forward:
+      - 9229:9229
+      - 3000:3000
+    autocreate: true
 

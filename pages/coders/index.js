@@ -6,7 +6,6 @@ import styles from "../../styles/Coder.module.css";
 export const getStaticProps = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const data = await response.json();
-  console.log(data);
   return {
     props: { coders: data },
   };

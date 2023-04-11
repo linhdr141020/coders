@@ -30,7 +30,6 @@ export const getStaticProps = async (context) => {
 };
 
 export default function Detail({ coder }) {
-  console.log(coder);
   return (
     <div>
       <h1>{coder.name}</h1>
